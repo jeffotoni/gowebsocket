@@ -19,7 +19,7 @@ var (
 
 func init() {
 	if len(PORT) == 0 {
-		PORT = "1234"
+		PORT = "3000"
 	}
 	if len(HOST) == 0 {
 		HOST = "ws://localhost"
