@@ -52,28 +52,4 @@ func main() {
 		fmt.Printf("Received: %s.\n", msg[:n])
 		time.Sleep(time.Millisecond * 2000)
 	}
-
-	// // create connection
-	// // schema can be ws:// or wss://
-	// // host, port – WebSocket server
-	// conn, err := websocket.Dial("ws://localhost:1234/chat", "", "http://localhost/")
-	// if err != nil {
-	//   // handle error
-	//   log.Println(err)
-	//   return
-	// }
-	// defer conn.Close()
-
-	// // send message
-	// if err = websocket.JSON.Send(conn, `{"msg":"jeffotoni", "code":"xxxxxxxxxxxxe39393"}`); err != nil {
-	//   // handle error
-	// }
-
-	// // receive message
-	// // messageType initializes some type of message
-	// message := messageType{}
-	// if err := websocket.JSON.Receive(conn, &message); err != nil {
-	//   // handle error
-	//   log.Println(err)
-	// }
 }

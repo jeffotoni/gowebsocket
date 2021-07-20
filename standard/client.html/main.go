@@ -18,7 +18,6 @@ func main() {
 	fs := http.FileServer(http.FS(contentfs))
 	mux.Handle("/", http.StripPrefix("/", fs))
 	mux.HandleFunc("/ping", Ping)
-
 	log.Println("Run Server:", HTTP_PORT)
 	http.ListenAndServe(HTTP_PORT, mux)
 }

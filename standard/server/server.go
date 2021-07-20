@@ -12,7 +12,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"time"
 
 	"golang.org/x/net/websocket"
 )
@@ -39,7 +38,7 @@ func ListenWebSocker(ws *websocket.Conn) {
 		if len(reply) > 0 {
 			msg := `{"name":"jeffotoni", "code":"kong engdb => ` + reply + `"}`
 			websocket.Message.Send(ws, msg) // Sending message to the client
-			time.Sleep(time.Millisecond * 600)
+			//time.Sleep(time.Millisecond * 600)
 		}
 	}
 }
