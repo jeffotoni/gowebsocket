@@ -33,14 +33,22 @@ func init() {
 }
 
 func ListenWebSocker(ws *websocket.Conn) {
-	for { // loop
-		var reply string //  Receive the message by reference
-		// Receiving client message
-		websocket.Message.Receive(ws, &reply)
-		if len(reply) > 0 {
-			msg := `{"name":"jeffotoni", "code":"kong engdb => ` + reply + `"}`
-			websocket.Message.Send(ws, msg) // Sending message to the client
-			//time.Sleep(time.Millisecond * 600)
+	var reply string
+	for {
+		if err := websocket.Message.Receive(ws, &reply); err != nil {
+			// handle error
+			if err.Error() == "EOF" {
+				break
+			}
+			log.Println("error Receive:", err)
+			continue
+		}
+
+		// send message
+		msg := `{"name":"jeffotoni", "code":"kong server engdb => ` + reply + `"}`
+		if err := websocket.Message.Send(ws, msg); err != nil {
+			// handle error
+			log.Println("error Send:", err)
 		}
 	}
 }
